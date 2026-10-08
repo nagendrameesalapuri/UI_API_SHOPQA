@@ -1,0 +1,35 @@
+# Downloads every shard's blob report and merges them into one HTML report and one
+# results.json (input for triage and for publishing to Test Plans).
+steps:
+  - task: DownloadPipelineArtifact@2
+    displayName: Download blob reports
+    inputs:
+      buildType: current
+      itemPattern: blob-*/**
+      targetPath: $(Pipeline.Workspace)/blobs
+
+  - script: |
+      set -e
+      mkdir -p all-blob-reports
+      find "$(Pipeline.Workspace)/blobs" -name '*.zip' -exec cp {} all-blob-reports/ \;
+      ls -la all-blob-reports
+    displayName: Collect blob reports
+
+  - script: npx playwright merge-reports --reporter html,json ./all-blob-reports
+    displayName: Merge reports
+    env:
+      PLAYWRIGHT_JSON_OUTPUT_NAME: reports/results.json
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish HTML report
+    condition: always()
+    inputs:
+      targetPath: playwright-report
+      artifact: html-report
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish results.json
+    condition: always()
+    inputs:
+      targetPath: reports/results.json
+      artifact: results-json

@@ -1,0 +1,1186 @@
+{
+  "generatedAt": "2026-10-08T13:46:26.853Z",
+  "mapped": [],
+  "unmapped": [
+    {
+      "file": "seed.spec.ts",
+      "title": "seed: signed-in customer sorts the product catalogue by price",
+      "suite": "root"
+    },
+    {
+      "file": "ui/regression/AddressManagementTests.spec.ts",
+      "title": "Address Management Tests > @Regression TC-048 First address defaults automatically",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AddressManagementTests.spec.ts",
+      "title": "Address Management Tests > @Regression TC-049 Add a second, non-default address",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AddressManagementTests.spec.ts",
+      "title": "Address Management Tests > @Regression TC-050 Edit an address",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AddressManagementTests.spec.ts",
+      "title": "Address Management Tests > @Regression TC-051 Set a different address as default",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AddressManagementTests.spec.ts",
+      "title": "Address Management Tests > @Regression TC-052 Delete an address",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AddressManagementTests.spec.ts",
+      "title": "Address Management Tests > @Regression TC-053 Add multiple addresses",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AdminTests.spec.ts",
+      "title": "Admin Tests > @Regression TC-066 Customer cannot access admin",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AdminTests.spec.ts",
+      "title": "Admin Tests > @Regression TC-067 Create product",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AdminTests.spec.ts",
+      "title": "Admin Tests > @Regression TC-068 Edit and delete product",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AdminTests.spec.ts",
+      "title": "Admin Tests > @Regression TC-069 Update order status",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AdminTests.spec.ts",
+      "title": "Admin Tests > @Regression TC-070 Manage coupons and users",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AdminTests.spec.ts",
+      "title": "Admin Tests > @Regression TC-071 Uploaded product image survives a backend restart",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > @Regression TC-003 Login with wrong password",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > @Regression TC-004 Account lockout after 5 failed attempts",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > @Regression TC-006 Register with duplicate email",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > @Regression TC-009 Unverified email cannot log in",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > @Regression TC-011 Forgot and reset password",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > @Regression TC-013 Protected route redirects guests",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > TC-008 Register with invalid address fields > @Regression TC-008 Empty City and State show inline errors",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/AuthenticationTests.spec.ts",
+      "title": "Authentication Tests > TC-008 Register with invalid address fields > @Regression TC-008 Non 6-digit postal code shows inline error",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CartTests.spec.ts",
+      "title": "Cart Tests > @Regression TC-030 Quantity cannot exceed stock",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CartTests.spec.ts",
+      "title": "Cart Tests > @Regression TC-031 Cart persists after re-login",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CheckoutTests.spec.ts",
+      "title": "Checkout Tests > @Regression TC-039 Pick a different saved address",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CheckoutTests.spec.ts",
+      "title": "Checkout Tests > @Regression TC-040 Override saved address with manual entry",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CheckoutTests.spec.ts",
+      "title": "Checkout Tests > @Regression TC-041 Address validation",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CheckoutTests.spec.ts",
+      "title": "Checkout Tests > @Regression TC-043 Pay with insufficient funds card",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CheckoutTests.spec.ts",
+      "title": "Checkout Tests > @Regression TC-044 Pay with expired card",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CheckoutTests.spec.ts",
+      "title": "Checkout Tests > @Regression TC-045 UPI payment failure",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CheckoutTests.spec.ts",
+      "title": "Checkout Tests > @Regression TC-046 Cash on delivery order",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CouponTests.spec.ts",
+      "title": "Coupon Tests > @Regression TC-033 Apply flat coupon FLAT500",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CouponTests.spec.ts",
+      "title": "Coupon Tests > @Regression TC-034 Apply expired coupon",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CouponTests.spec.ts",
+      "title": "Coupon Tests > @Regression TC-035 Apply exhausted coupon",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/CouponTests.spec.ts",
+      "title": "Coupon Tests > @Regression TC-036 Remove applied coupon",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/OrderTests.spec.ts",
+      "title": "Order Tests > @Regression TC-056 Cancel a pending order",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/OrderTests.spec.ts",
+      "title": "Order Tests > @Regression TC-057 Return a delivered order",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/OrderTests.spec.ts",
+      "title": "Order Tests > @Regression TC-058 Download invoice",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductCatalogTests.spec.ts",
+      "title": "Product Catalog Tests > @Regression TC-017 Filter by price range",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductCatalogTests.spec.ts",
+      "title": "Product Catalog Tests > @Regression TC-018 Sort products",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductCatalogTests.spec.ts",
+      "title": "Product Catalog Tests > @Regression TC-020 Search with no results",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductCatalogTests.spec.ts",
+      "title": "Product Catalog Tests > @Regression TC-021 Out-of-stock product",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductDetailTests.spec.ts",
+      "title": "Product Detail Tests > @Regression TC-024 Submit product review",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductDetailTests.spec.ts",
+      "title": "Product Detail Tests > @Regression TC-025 View product specifications - iPhone 15 Pro",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductDetailTests.spec.ts",
+      "title": "Product Detail Tests > @Regression TC-025 View product specifications - Nike Air Force 1",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProductDetailTests.spec.ts",
+      "title": "Product Detail Tests > @Regression TC-025 View product specifications - Dune",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProfileWishlistTests.spec.ts",
+      "title": "Profile & Wishlist Tests > @Regression TC-059 Update profile",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProfileWishlistTests.spec.ts",
+      "title": "Profile & Wishlist Tests > @Regression TC-061 Change password with wrong current password",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProfileWishlistTests.spec.ts",
+      "title": "Profile & Wishlist Tests > @Regression TC-062 Change password with weak new password",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/regression/ProfileWishlistTests.spec.ts",
+      "title": "Profile & Wishlist Tests > @Regression TC-064 Move wishlist item to cart",
+      "suite": "ui/regression"
+    },
+    {
+      "file": "ui/sanity/Logout.spec.ts",
+      "title": "Authentication Tests > @Sanity Login with valid credentials and Logout",
+      "suite": "ui/sanity"
+    },
+    {
+      "file": "e2e/FailedPaymentThenRetry.spec.ts",
+      "title": "@E2E TC-075 Failed payment then successful retry",
+      "suite": "e2e"
+    },
+    {
+      "file": "e2e/GuestToFirstOrder.spec.ts",
+      "title": "@E2E TC-072 Guest to first order (happy path)",
+      "suite": "e2e"
+    },
+    {
+      "file": "e2e/OrderLifecycleAcrossRoles.spec.ts",
+      "title": "@E2E TC-074 Order lifecycle across roles",
+      "suite": "e2e"
+    },
+    {
+      "file": "e2e/RegisterWithAddressToCheckout.spec.ts",
+      "title": "@E2E TC-073 Register with address straight to checkout",
+      "suite": "e2e"
+    },
+    {
+      "file": "e2e/WishlistToPurchase.spec.ts",
+      "title": "@E2E TC-076 Wishlist to purchase",
+      "suite": "e2e"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > GET /api/admin/dashboard refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > GET /api/admin/users refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > PATCH /api/admin/users/00000000-0000-4000-8000-000000000000 refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > GET /api/admin/coupons refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > POST /api/admin/coupons refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > PUT /api/admin/coupons/00000000-0000-4000-8000-000000000000 refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > DELETE /api/admin/coupons/00000000-0000-4000-8000-000000000000 refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > GET /api/admin/analytics/revenue refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > GET /api/orders/admin/all refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > PUT /api/orders/admin/00000000-0000-4000-8000-000000000000/status refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > POST /api/products refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > PUT /api/products/00000000-0000-4000-8000-000000000000 refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > DELETE /api/products/00000000-0000-4000-8000-000000000000 refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/access-control.spec.ts",
+      "title": "@API Admin - access control > GET /api/products/export/csv refuses guests and customers",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-coupons.spec.ts",
+      "title": "@API Admin - coupons > Create a coupon; customers can use it until it is disabled",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-coupons.spec.ts",
+      "title": "@API Admin - coupons > Duplicate code is rejected with 409",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-coupons.spec.ts",
+      "title": "@API Admin - coupons > Missing type and value are rejected with 400",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-orders.spec.ts",
+      "title": "@API Admin - orders > Search finds a customer's order by number",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-orders.spec.ts",
+      "title": "@API Admin - orders > Status filter returns only that status",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-orders.spec.ts",
+      "title": "@API Admin - orders > Status update stores the tracking number",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-orders.spec.ts",
+      "title": "@API Admin - orders > Invalid status is rejected with the list of valid ones",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-orders.spec.ts",
+      "title": "@API Admin - orders > Unknown order returns 404",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-products.spec.ts",
+      "title": "@API Admin - products > Created product is listed in the catalog",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-products.spec.ts",
+      "title": "@API Admin - products > Update price and stock",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-products.spec.ts",
+      "title": "@API Admin - products > Deactivated product leaves the catalog and cannot be bought",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-products.spec.ts",
+      "title": "@API Admin - products > Updating an unknown product returns 404",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-products.spec.ts",
+      "title": "@API Admin - products > Product without a price is rejected",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-products.spec.ts",
+      "title": "@API Admin - products > Negative price is rejected",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-reports.spec.ts",
+      "title": "@API Admin - dashboard and reports > Dashboard stats",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-reports.spec.ts",
+      "title": "@API Admin - dashboard and reports > Revenue analytics for 7d",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-reports.spec.ts",
+      "title": "@API Admin - dashboard and reports > Revenue analytics for 30d",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-reports.spec.ts",
+      "title": "@API Admin - dashboard and reports > Revenue analytics for 90d",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-reports.spec.ts",
+      "title": "@API Admin - dashboard and reports > Product CSV export",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-users.spec.ts",
+      "title": "@API Admin - users > Search finds a user by email",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-users.spec.ts",
+      "title": "@API Admin - users > Role filter returns only admins",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-users.spec.ts",
+      "title": "@API Admin - users > Banned user cannot log in until unbanned",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-users.spec.ts",
+      "title": "@API Admin - users > Unknown user returns 404",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/admin/admin-users.spec.ts",
+      "title": "@API Admin - users > Invalid status is rejected with 400",
+      "suite": "api/admin"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - registration > Missing fields are rejected with field-level details",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - registration > Weak password is rejected",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - registration > Malformed email is rejected",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - registration > Duplicate email returns 409 EMAIL_TAKEN",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - email verification > Unverified user cannot log in",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - email verification > Verification link works once, then the user can log in",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - email verification > Unknown verification token is rejected",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - login > Valid credentials return a token pair and the user",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - login > Missing credentials are rejected",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - login > Wrong password and unknown email get the same message",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - login > Five failed attempts lock the account for 30 minutes",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - sessions > Refresh token issues a working access token",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - sessions > Invalid refresh token is rejected",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - sessions > Logout revokes the refresh token",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - sessions > Logout requires an access token",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - sessions > Malformed access token is rejected",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - password reset > Reset password with the emailed token",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - password reset > Reset token cannot be reused",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - password reset > Reset rejects a weak password",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - password reset > Forgot password does not reveal whether an email exists",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/auth.spec.ts",
+      "title": "@API Auth - password reset > Forgot password requires an email",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/login.spec.ts",
+      "title": "Login with valid credentials",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/auth/register.spec.ts",
+      "title": "User Registration test",
+      "suite": "api/auth"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - access > Cart requires login",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - access > Invalid token is rejected",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - items > New user starts with an empty cart",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - items > Adding the same product twice merges into one line",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - items > Totals below the free-shipping threshold include shipping",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - items > Update quantity, remove an item, clear the cart",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Adding more than the stock is refused",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Raising a line above the stock is refused",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Out-of-stock product cannot be added",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Unknown product returns 404",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Missing productId is rejected",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Adding quantity 0 is rejected with 400",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Updating a line to quantity 0 is rejected with 400",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/cart.spec.ts",
+      "title": "@API Cart - stock and validation > Another user's cart item cannot be changed",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - validation endpoint > Valid coupon is described",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - validation endpoint > NOPE123 is reported as invalid",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - validation endpoint > EXPIRED50 is reported as invalid",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - validation endpoint > Exhausted coupon is reported",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - validation endpoint > Validation requires login",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > Percentage coupon takes 10% off the subtotal",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > Codes are case-insensitive",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > Percentage coupon is capped at its max discount",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > Fixed coupon below its minimum order is refused",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > Fixed coupon above its minimum order takes ₹500 off",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > EXPIRED50 cannot be applied",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > MAXUSED cannot be applied",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > NOPE123 cannot be applied",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/cart/coupons.spec.ts",
+      "title": "@API Coupons - applying to the cart > Removing the coupon restores the totals",
+      "suite": "api/cart"
+    },
+    {
+      "file": "api/contract/schema-contract.spec.ts",
+      "title": "API schema contracts > Catalog endpoints match their schemas",
+      "suite": "api/contract"
+    },
+    {
+      "file": "api/contract/schema-contract.spec.ts",
+      "title": "API schema contracts > Customer endpoints match their schemas",
+      "suite": "api/contract"
+    },
+    {
+      "file": "api/contract/schema-contract.spec.ts",
+      "title": "API schema contracts > Admin endpoints match their schemas",
+      "suite": "api/contract"
+    },
+    {
+      "file": "api/contract/schema-contract.spec.ts",
+      "title": "API schema contracts > Error responses match the error schema",
+      "suite": "api/contract"
+    },
+    {
+      "file": "api/orders/order-lifecycle.spec.ts",
+      "title": "@API Order lifecycle > Cancelling restores stock and cannot be repeated",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/order-lifecycle.spec.ts",
+      "title": "@API Order lifecycle > Shipped order cannot be cancelled",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/order-lifecycle.spec.ts",
+      "title": "@API Order lifecycle > Only delivered orders can be returned",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/order-lifecycle.spec.ts",
+      "title": "@API Order lifecycle > Each admin status change is recorded in the customer's history",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > Checkout with an empty cart is refused",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > Checkout requires address and payment method",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > Unknown payment method is rejected with 400",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > COD order: totals, cart emptied, stock reduced",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > Delivery \"standard\" costs ₹49 below the free-shipping threshold",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > Delivery \"express\" costs ₹149 below the free-shipping threshold",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > Delivery \"overnight\" costs ₹299 below the free-shipping threshold",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - checkout > Delivery \"pickup\" costs ₹0 below the free-shipping threshold",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - reading > Orders can be filtered by status",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - reading > Tracking returns the order and its timeline",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - reading > Invoice JSON matches the order",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - reading > Invoice PDF downloads with the order number",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - reading > Unknown order returns 404",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - reading > Another user's order is invisible to them",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/orders.spec.ts",
+      "title": "@API Orders - reading > Orders require login",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > Card 4111 (success) is paid",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > UPI is paid",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > PayPal is paid",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > Card 4000…0002 is declined; no order, cart kept",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > Card 4000…0069 is declined; no order, cart kept",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > Card 4000…9995 is declined; no order, cart kept",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > UPI fail@upi is declined; no order, cart kept",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > Card payment without card details is refused",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/orders/payments.spec.ts",
+      "title": "@API Payments > Cash on delivery leaves payment pending",
+      "suite": "api/orders"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Pagination splits the catalog into consistent pages",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > A page past the end is empty",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > limit=0 still returns consistent pagination",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Search matches by name, ignoring whitespace",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Search matches by brand",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Category filter returns only that category",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Price range filter is inclusive",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > An impossible price range returns nothing",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Rating, stock and featured filters",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Sort price_asc",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Sort price_desc",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Sort rating_desc",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Sort newest",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - listing > Sort name_asc",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - detail and categories > Product is the same by slug and by id",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - detail and categories > Detail includes reviews and related products from the same category",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - detail and categories > Unknown product returns 404 by slug and by id",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - detail and categories > Each category's product_count matches the catalog",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/catalog.spec.ts",
+      "title": "@API Products - detail and categories > CSV export requires authentication",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/products/get-products.spec.ts",
+      "title": "Get products with default pagination",
+      "suite": "api/products"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Environment status reports record counts",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Chaos settings can be read",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Set stock and restore it",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Verification token is available only while pending",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Expire tokens signs the user out everywhere",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Lock and unlock a user",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Generate fake orders for a user",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/qa/qa-helpers.spec.ts",
+      "title": "@API QA helpers > Mock a payment failure on an order",
+      "suite": "api/qa"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - reading > Rating summary is consistent with the distribution",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - reading > Sort highest",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - reading > Sort lowest",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - reading > productId is required",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - writing > Writing a review requires login",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - writing > Review lifecycle: create, edit, vote, delete",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - writing > Rating 0 is rejected",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - writing > Rating 6 is rejected",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/reviews/reviews.spec.ts",
+      "title": "@API Reviews - writing > Review for an unknown product returns 404",
+      "suite": "api/reviews"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Add an address and read it back",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Only one address is default at a time",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Edit an address",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Delete an address",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Deleting an unknown address returns 404",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Another user cannot change or delete my address",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Invalid postal code is rejected",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/addresses.spec.ts",
+      "title": "@API Users - addresses > Missing required fields are rejected with 400",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - profile > Current user's profile",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - profile > Update name and phone",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - profile > Updating the name keeps the phone number",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - profile > Empty first name is rejected",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - profile > Profile requires login",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - change password > Successful change: new password works, old one does not",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - change password > Rejected: wrong current password",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - change password > Rejected: weak new password",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - change password > Rejected: new password same as current",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/profile.spec.ts",
+      "title": "@API Users - change password > Rejected: missing fields",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/wishlist.spec.ts",
+      "title": "@API Users - wishlist > Add, list and remove a product",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/wishlist.spec.ts",
+      "title": "@API Users - wishlist > Adding the same product twice keeps one entry",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/wishlist.spec.ts",
+      "title": "@API Users - wishlist > Wishlists are private to each user",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/wishlist.spec.ts",
+      "title": "@API Users - wishlist > Unknown product returns 404",
+      "suite": "api/users"
+    },
+    {
+      "file": "api/users/wishlist.spec.ts",
+      "title": "@API Users - wishlist > Wishlist requires login",
+      "suite": "api/users"
+    }
+  ]
+}

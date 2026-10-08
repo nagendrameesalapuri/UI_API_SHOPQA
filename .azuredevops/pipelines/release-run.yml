@@ -1,0 +1,38 @@
+# Manual release sign-off run. Same stages as regression.yml, but a release version is
+# required: the Publish stage creates (or reuses) the Test Plan "Regression <version>"
+# and records every mapped result there.
+trigger: none
+pr: none
+
+parameters:
+  - name: releaseVersion
+    displayName: Release version (e.g. 2026.10.1)
+    type: string
+  - name: environment
+    type: string
+    default: uat
+    values: [dev, qa, uat]
+  - name: grep
+    type: string
+    default: "@Regression"
+  - name: shards
+    type: number
+    default: 4
+  - name: createBugs
+    type: boolean
+    default: true
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
+stages:
+  - template: templates/regression-stages.yml
+    parameters:
+      environment: ${{ parameters.environment }}
+      grep: ${{ parameters.grep }}
+      shards: ${{ parameters.shards }}
+      releaseVersion: ${{ parameters.releaseVersion }}
+      createBugs: ${{ parameters.createBugs }}

@@ -4,7 +4,9 @@ import { UNKNOWN_ID } from "../../../test-data/api";
 import { ProductSort } from "../../../api/models/product.models";
 
 const isSorted = (values: number[], direction: "asc" | "desc") =>
-  values.every((v, i) => i === 0 || (direction === "asc" ? values[i - 1] <= v : values[i - 1] >= v));
+  values.every(
+    (v, i) => i === 0 || (direction === "asc" ? values[i - 1] <= v : values[i - 1] >= v),
+  );
 
 test.describe("@API Products - listing", () => {
   test("Pagination splits the catalog into consistent pages", async ({ productApi }) => {
@@ -21,7 +23,7 @@ test.describe("@API Products - listing", () => {
 
     const last = await productApi.listProducts({ page: first.pages, limit: 5 });
     expect(last.hasNext).toBe(false);
-    expect(last.products.length).toBe(first.total - 5 * (first.pages - 1));
+    expect(last.products).toHaveLength(first.total - 5 * (first.pages - 1));
   });
 
   test("A page past the end is empty", async ({ productApi }) => {
@@ -95,7 +97,11 @@ test.describe("@API Products - listing", () => {
     expect(featured.products.every(({ is_featured }) => is_featured)).toBe(true);
   });
 
-  const numericSorts: [ProductSort, "asc" | "desc", (p: { price: string; avg_rating: string }) => number][] = [
+  const numericSorts: [
+    ProductSort,
+    "asc" | "desc",
+    (p: { price: string; avg_rating: string }) => number,
+  ][] = [
     ["price_asc", "asc", ({ price }) => Number(price)],
     ["price_desc", "desc", ({ price }) => Number(price)],
     ["rating_desc", "desc", ({ avg_rating }) => Number(avg_rating)],
@@ -109,7 +115,12 @@ test.describe("@API Products - listing", () => {
 
   test("Sort newest", async ({ productApi }) => {
     const { products } = await productApi.listProducts({ sort: "newest", limit: 100 });
-    expect(isSorted(products.map(({ created_at }) => Date.parse(created_at)), "desc")).toBe(true);
+    expect(
+      isSorted(
+        products.map(({ created_at }) => Date.parse(created_at)),
+        "desc",
+      ),
+    ).toBe(true);
   });
 
   test("Sort name_asc", async ({ productApi }) => {
@@ -130,7 +141,7 @@ test.describe("@API Products - detail and categories", () => {
     productApi,
   }) => {
     const product = await productApi.getProduct("dune");
-    expect(product.reviews.length).toBe(Math.min(product.review_count, product.reviews.length));
+    expect(product.reviews).toHaveLength(Math.min(product.review_count, product.reviews.length));
     expect(product.reviews.every(({ product_id }) => product_id === product.id)).toBe(true);
     expect(product.related.length).toBeGreaterThan(0);
     expect(product.related.map(({ id }) => id)).not.toContain(product.id);

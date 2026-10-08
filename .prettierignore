@@ -1,0 +1,14 @@
+node_modules
+playwright-report
+test-results
+blob-report
+reports
+dashboard/dist
+dashboard/.cache
+package-lock.json
+.github/AI_Agentic_Playwright_Build_Prompts.md
+ai/evals/broken-suite/results.json
+.claude
+.github/agents
+.mcp.json
+.vscode

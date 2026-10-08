@@ -1,0 +1,60 @@
+# Nightly + manual sharded regression: Test -> Report -> Triage -> Publish.
+# Also queued by the Release Dashboard (with releaseVersion + testPlanId).
+trigger: none
+pr: none
+
+schedules:
+  # 20:30 UTC = 02:00 IST (UTC+5:30), Monday to Friday
+  - cron: "30 20 * * 1-5"
+    displayName: Nightly regression (02:00 IST)
+    branches:
+      include: [main]
+    always: true
+
+parameters:
+  - name: environment
+    displayName: Environment
+    type: string
+    default: qa
+    values: [dev, qa, uat]
+  - name: grep
+    displayName: Test filter (grep on titles/tags)
+    type: string
+    default: "@Regression"
+  - name: shards
+    displayName: Number of shards
+    type: number
+    default: 4
+  - name: releaseVersion
+    displayName: Release version (optional, e.g. 2026.10.1)
+    type: string
+    default: ""
+  - name: testPlanId
+    displayName: Azure Test Plan id (optional)
+    type: string
+    default: ""
+  - name: createBugs
+    displayName: Create draft bugs for high-confidence product bugs
+    type: boolean
+    default: false
+  - name: runInContainer
+    displayName: Run tests inside the Playwright container
+    type: boolean
+    default: false
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
+stages:
+  - template: templates/regression-stages.yml
+    parameters:
+      environment: ${{ parameters.environment }}
+      grep: ${{ parameters.grep }}
+      shards: ${{ parameters.shards }}
+      releaseVersion: ${{ parameters.releaseVersion }}
+      testPlanId: ${{ parameters.testPlanId }}
+      createBugs: ${{ parameters.createBugs }}
+      runInContainer: ${{ parameters.runInContainer }}

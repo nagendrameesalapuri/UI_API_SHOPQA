@@ -1,0 +1,106 @@
+# Test -> Report -> Triage -> Publish. Shared by regression.yml and release-run.yml.
+# Report and later stages run with condition always(): failures still get a merged
+# report, a triage summary and Test Plan results.
+parameters:
+  - name: environment
+    type: string
+  - name: grep
+    type: string
+  - name: shards
+    type: number
+  - name: releaseVersion
+    type: string
+    default: ""
+  - name: testPlanId
+    type: string
+    default: ""
+  - name: createBugs
+    type: boolean
+    default: false
+  - name: runInContainer
+    type: boolean
+    default: false
+
+stages:
+  - stage: Test
+    jobs:
+      - template: test-job.yml
+        parameters:
+          name: Regression
+          grep: ${{ parameters.grep }}
+          shards: ${{ parameters.shards }}
+          environment: ${{ parameters.environment }}
+          runInContainer: ${{ parameters.runInContainer }}
+
+  - stage: Report
+    dependsOn: Test
+    condition: always()
+    jobs:
+      - job: Merge
+        steps:
+          - template: install-steps.yml
+            parameters:
+              installBrowsers: false
+          - template: report-steps.yml
+
+  - stage: Triage
+    dependsOn: Report
+    condition: always()
+    jobs:
+      - job: Triage
+        steps:
+          - template: install-steps.yml
+            parameters:
+              installBrowsers: false
+          - task: DownloadPipelineArtifact@2
+            displayName: Download results.json
+            inputs:
+              buildType: current
+              artifact: results-json
+              targetPath: reports
+          # Rule-based triage works with LLM_PROVIDER=none (the default). History of
+          # the previous runs is read from their ai-triage artifacts; no database.
+          - script: npm run triage -- --results reports/results.json --out reports --history-from-ado 5
+            displayName: Triage failures
+            continueOnError: true
+            env:
+              SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+              ADO_REGRESSION_PIPELINE_ID: $(System.DefinitionId)
+              TRIAGE_CREATE_BUGS: ${{ parameters.createBugs }}
+          - script: |
+              if [ -f reports/ai-triage.md ]; then
+                echo "##vso[task.uploadsummary]$(System.DefaultWorkingDirectory)/reports/ai-triage.md"
+              fi
+            displayName: Add triage summary to the run
+            condition: always()
+          - task: PublishPipelineArtifact@1
+            displayName: Publish ai-triage
+            condition: always()
+            inputs:
+              targetPath: reports
+              artifact: ai-triage
+
+  # Only when results should go to a Test Plan (decided at compile time)
+  - ${{ if or(ne(parameters.testPlanId, ''), ne(parameters.releaseVersion, '')) }}:
+      - stage: Publish
+        dependsOn: Triage
+        condition: always()
+        jobs:
+          - job: TestPlans
+            displayName: Publish results to Azure Test Plans
+            steps:
+              - template: install-steps.yml
+                parameters:
+                  installBrowsers: false
+              - task: DownloadPipelineArtifact@2
+                inputs:
+                  buildType: current
+                  artifact: results-json
+                  targetPath: reports
+              # TEST_PLAN_ID wins; otherwise the plan "Regression <RELEASE_VERSION>" is created or reused
+              - script: npm run ado:publish-results -- --results reports/results.json
+                displayName: Publish results to Test Plan
+                env:
+                  SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+                  TEST_PLAN_ID: ${{ parameters.testPlanId }}
+                  RELEASE_VERSION: ${{ parameters.releaseVersion }}

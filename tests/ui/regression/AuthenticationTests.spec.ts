@@ -14,16 +14,10 @@ const REMAINING_ATTEMPT_MESSAGES = [
   "Invalid email or password (1 attempt remaining)",
 ];
 
-const email = process.env.UI_TEST_CUSTOMER_EMAIL!;
-const password = process.env.UI_TEST_CUSTOMER_PASSWORD!;
-
 test.describe("Authentication Tests", () => {
   test.describe.configure({ timeout: 120000 });
 
-  test("@Regression TC-003 Login with wrong password", async ({
-    loginPage,
-    verifiedUser,
-  }) => {
+  test("@Regression TC-003 Login with wrong password", async ({ loginPage, verifiedUser }) => {
     await loginPage.navigateToLoginPage();
     await loginPage.loginWith(verifiedUser.email, "WrongPassword1!");
 
@@ -53,16 +47,12 @@ test.describe("Authentication Tests", () => {
 
     await test.step("Correct password is rejected while locked", async () => {
       await loginPage.loginWith(verifiedUser.email, verifiedUser.password);
-      await loginPage.verifyLoginError(
-        "Account locked. Try again in 30 minute(s).",
-      );
+      await loginPage.verifyLoginError("Account locked. Try again in 30 minute(s).");
       await loginPage.verifyUserStaysOnLoginPage();
     });
   });
 
-  test("@Regression TC-006 Register with duplicate email", async ({
-    registerPage,
-  }) => {
+  test("@Regression TC-006 Register with duplicate email", async ({ registerPage }) => {
     const user = { ...buildNewUser(), email: EXISTING_USER_EMAIL };
 
     await registerPage.navigateToRegisterPage();
@@ -78,9 +68,7 @@ test.describe("Authentication Tests", () => {
       await registerPage.fillAccountDetails(buildNewUser());
     });
 
-    test("@Regression TC-008 Empty City and State show inline errors", async ({
-      registerPage,
-    }) => {
+    test("@Regression TC-008 Empty City and State show inline errors", async ({ registerPage }) => {
       await registerPage.fillAddress(buildAddress({ city: "", state: "" }));
       await registerPage.submit();
 
@@ -100,10 +88,7 @@ test.describe("Authentication Tests", () => {
     });
   });
 
-  test("@Regression TC-009 Unverified email cannot log in", async ({
-    loginPage,
-    authApi,
-  }) => {
+  test("@Regression TC-009 Unverified email cannot log in", async ({ loginPage, authApi }) => {
     const user = buildNewUser();
 
     const response = await authApi.registerNewUser(user);
@@ -137,10 +122,7 @@ test.describe("Authentication Tests", () => {
     await loginPage.verifyUserIsLoggedIn();
   });
 
-  test("@Regression TC-013 Protected route redirects guests", async ({
-    page,
-    loginPage,
-  }) => {
+  test("@Regression TC-013 Protected route redirects guests", async ({ page, loginPage }) => {
     for (const route of PROTECTED_ROUTES) {
       await test.step(`Guest opens ${route}`, async () => {
         await page.goto(route);

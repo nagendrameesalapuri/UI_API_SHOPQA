@@ -1,0 +1,192 @@
+[
+  {
+    "id": "G01-flaky-retry",
+    "failure": {
+      "status": "flaky",
+      "retries": 1,
+      "errorMessage": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByTestId('cart-count')\nExpected: visible\nTimeout: 5000ms"
+    },
+    "expected": "FLAKY"
+  },
+  {
+    "id": "G02-render-cold-start",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: apiRequestContext.get: connect ECONNREFUSED 10.0.0.12:443\nCall log:\n  - → GET https://shopqa-backend.onrender.com/api/products"
+    },
+    "expected": "ENVIRONMENT"
+  },
+  {
+    "id": "G03-dns",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://nagendra-shopqa.netlify.app/login"
+    },
+    "expected": "ENVIRONMENT"
+  },
+  {
+    "id": "G04-client-503",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: Add cart item failed. Status: 503"
+    },
+    "expected": "ENVIRONMENT"
+  },
+  {
+    "id": "G05-gateway",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: https://shopqa-backend.onrender.com/api/orders -> <html><head><title>502 Bad Gateway</title></head></html>\n\nexpect(received).toBe(expected)\n\nExpected: 201\nReceived: 502"
+    },
+    "expected": "ENVIRONMENT"
+  },
+  {
+    "id": "G06-expired-token",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: https://shopqa-backend.onrender.com/api/cart -> {\"error\":\"jwt expired\",\"code\":\"TOKEN_EXPIRED\"}\n\nExpected: 200\nReceived: 401"
+    },
+    "expected": "ENVIRONMENT"
+  },
+  {
+    "id": "G07-missing-env",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: API_TEST_EMAIL and API_TEST_PASSWORD must be configured in .env"
+    },
+    "expected": "ENVIRONMENT"
+  },
+  {
+    "id": "G08-unexpected-login-redirect",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: expect(page).toHaveURL(expected) failed\n\nExpected pattern: /\\/orders/\nReceived string:  \"https://nagendra-shopqa.netlify.app/login?redirect=%2Forders\""
+    },
+    "expected": "ENVIRONMENT"
+  },
+  {
+    "id": "G09-stale-testid",
+    "failure": {
+      "status": "failed",
+      "failingStep": "Apply coupon",
+      "errorMessage": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for getByTestId('apply-coupon-btn')"
+    },
+    "expected": "TEST_ISSUE"
+  },
+  {
+    "id": "G10-strict",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: locator.fill: Error: strict mode violation: getByLabel('Phone') resolved to 2 elements:\n    1) <input id=\"phone\"/>\n    2) <input id=\"alt-phone\"/>"
+    },
+    "expected": "TEST_ISSUE"
+  },
+  {
+    "id": "G11-not-found-expect",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'My Wishlist' })\nExpected: visible\nError: element(s) not found\nTimeout: 5000ms"
+    },
+    "expected": "TEST_ISSUE"
+  },
+  {
+    "id": "G12-duplicate-email",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: Register failed. Status: 409 {\"error\":\"Email already registered\",\"code\":\"EMAIL_TAKEN\"}"
+    },
+    "expected": "TEST_ISSUE"
+  },
+  {
+    "id": "G13-coupon-exists",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: POST /api/admin/coupons -> 409 Coupon code SAVE10 already exists"
+    },
+    "expected": "TEST_ISSUE"
+  },
+  {
+    "id": "G14-wrong-total",
+    "failure": {
+      "status": "failed",
+      "failingStep": "Verify order total",
+      "errorMessage": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByTestId('order-total')\nExpected: \"₹1,490\"\nReceived: \"₹1,990\"\nCall log:\n  - 9 × locator resolved to <span data-testid=\"order-total\">₹1,990</span>"
+    },
+    "expected": "PRODUCT_BUG"
+  },
+  {
+    "id": "G15-wrong-status-for-invalid-input",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: https://shopqa-backend.onrender.com/api/admin/products -> {\"id\":\"1\"}\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201"
+    },
+    "expected": "PRODUCT_BUG"
+  },
+  {
+    "id": "G16-schema-change",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "ZodError: [\n  {\n    \"code\": \"invalid_type\",\n    \"expected\": \"number\",\n    \"received\": \"string\",\n    \"path\": [\"cart\", \"total\"],\n    \"message\": \"Invalid input: expected number, received string\"\n  }\n]"
+    },
+    "expected": "PRODUCT_BUG"
+  },
+  {
+    "id": "G17-guard-should-401",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: GET /api/admin/users as customer -> []\n\nExpected: 403\nReceived: 200"
+    },
+    "expected": "PRODUCT_BUG"
+  },
+  {
+    "id": "G18-intermittent-history",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: expect(received).toEqual(expected)\n\nExpected: 3\nReceived: 2"
+    },
+    "history": ["P", "F", "P", "F", "P"],
+    "expected": "FLAKY"
+  },
+  {
+    "id": "G19-consistent-product-bug",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: expect(locator).toHaveText(expected) failed\n\nExpected: \"In stock\"\nReceived: \"Out of stock\""
+    },
+    "history": ["SAME", "SAME", "SAME"],
+    "expected": "PRODUCT_BUG",
+    "minConfidence": 0.8
+  },
+  {
+    "id": "G20-unknown-code-error",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "TypeError: Cannot read properties of undefined (reading 'items')\n    at CartPage.getItems (pages/CartPage.ts:42:18)"
+    },
+    "expected": "UNKNOWN"
+  },
+  {
+    "id": "G21-real-unique-violation-500",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: https://shopqa-backend.onrender.com/api/admin/coupons -> {\"error\":\"duplicate key value violates unique constraint \\\"coupons_code_key\\\"\",\"code\":\"23505\"}\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 409\nReceived: 500"
+    },
+    "expected": "PRODUCT_BUG"
+  },
+  {
+    "id": "G22-real-invalid-enum-500",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: https://shopqa-backend.onrender.com/api/admin/users/0c000cbf-d245-45f0-8e3f-5364646edd69 -> {\"error\":\"invalid input value for enum user_status: \\\"superstar\\\"\",\"code\":\"22P02\"}\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 500"
+    },
+    "expected": "PRODUCT_BUG"
+  },
+  {
+    "id": "G23-real-negated-assertion",
+    "failure": {
+      "status": "failed",
+      "errorMessage": "Error: no card details must not produce a paid order\n\nexpect(received).not.toBe(expected) // Object.is equality\n\nExpected: not 201"
+    },
+    "expected": "PRODUCT_BUG"
+  }
+]

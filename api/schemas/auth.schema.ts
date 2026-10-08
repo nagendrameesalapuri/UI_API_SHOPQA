@@ -1,4 +1,4 @@
-import { email, z } from "zod";
+import { z } from "zod";
 
 export const registeredUserSchema = z.object({
   id: z.string().uuid(),
@@ -27,9 +27,7 @@ export const loginResponseSchema = z.object({
   user: userProfileSchema,
 });
 
-export type RegisterUserResponseSchema = z.infer<
-  typeof registerUserResponseSchema
->;
+export type RegisterUserResponseSchema = z.infer<typeof registerUserResponseSchema>;
 
 export type LoginResponseSchema = z.infer<typeof loginResponseSchema>;
 

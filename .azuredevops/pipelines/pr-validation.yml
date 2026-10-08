@@ -1,0 +1,66 @@
+# PR validation: quality gates + smoke tests. Fast feedback, no sharding.
+# Azure Repos: add this pipeline as a Build Validation branch policy on main
+# (Azure Repos ignores the `pr:` keyword). GitHub repos: the `pr:` trigger below applies.
+trigger: none
+pr:
+  branches:
+    include: [main]
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
+
+stages:
+  - stage: Quality
+    jobs:
+      - job: Static
+        displayName: Lint, typecheck, unit tests
+        steps:
+          - template: templates/install-steps.yml
+            parameters:
+              installBrowsers: false
+          - script: npm run lint
+            displayName: Lint
+          - script: npm run typecheck
+            displayName: Typecheck
+          - script: npx vitest run --reporter=default --reporter=junit --outputFile.junit=reports/unit-junit.xml
+            displayName: Unit tests
+          - task: PublishTestResults@2
+            condition: always()
+            inputs:
+              testResultsFormat: JUnit
+              testResultsFiles: reports/unit-junit.xml
+              testRunTitle: Unit tests
+          # Fails the PR if a rule change drops triage accuracy below 90%
+          - script: npm run eval:triage
+            displayName: Triage golden-set eval
+
+      - job: Dashboard
+        displayName: Release Dashboard UI tests
+        steps:
+          - template: templates/install-steps.yml
+            parameters:
+              browsers: chromium
+          - script: npm run test:dashboard
+            displayName: Dashboard tests (API mocked)
+          - task: PublishTestResults@2
+            condition: always()
+            inputs:
+              testResultsFormat: JUnit
+              testResultsFiles: reports/dashboard-junit.xml
+              testRunTitle: Dashboard UI
+
+  - stage: Smoke
+    dependsOn: [] # runs in parallel with Quality
+    jobs:
+      - template: templates/test-job.yml
+        parameters:
+          name: Smoke
+          grep: "@Sanity|@smoke"
+          shards: 1
+          environment: qa
+          browsers: chromium
+          playwrightArgs: --project=chromium --project=api
+          timeoutInMinutes: 30

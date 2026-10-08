@@ -1,0 +1,48 @@
+# Manual: turn a user story into a DRAFT test pull request (branch ai/story-<id>).
+# The agent only creates a branch, a PR (labelled ai-generated) and optionally Test Cases.
+# It never merges. Build service permissions needed: Contribute + Create branch +
+# Contribute to pull requests on the repo, Work Items read (& write for Test Cases).
+trigger: none
+pr: none
+
+parameters:
+  - name: storyId
+    displayName: User story work item id
+    type: string
+  - name: createTestCases
+    displayName: Also create Test Cases in Azure Test Plans
+    type: boolean
+    default: false
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - name: npm_config_cache
+    value: $(Pipeline.Workspace)/.npm
+  # LLM settings: must define LLM_PROVIDER (use "none" until an LLM is approved) and,
+  # when enabled, the provider's key as a secret. See docs/how-to-llm.md.
+  - group: playwright-ai
+
+steps:
+  - template: templates/install-steps.yml
+    parameters:
+      installBrowsers: true
+      browsers: chromium
+
+  - script: npm run agent:story -- --id ${{ parameters.storyId }}
+    displayName: Story-to-test agent
+    env:
+      CREATE_TEST_CASES: ${{ parameters.createTestCases }}
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+      ADO_REPO: $(Build.Repository.Name)
+      LLM_PROVIDER: $(LLM_PROVIDER)
+      ANTHROPIC_API_KEY: $(ANTHROPIC_API_KEY)
+      AZURE_OPENAI_API_KEY: $(AZURE_OPENAI_API_KEY)
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish agent audit log
+    condition: always()
+    inputs:
+      targetPath: reports
+      artifact: story-agent-reports

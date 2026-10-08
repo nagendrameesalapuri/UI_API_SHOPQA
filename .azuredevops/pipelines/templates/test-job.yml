@@ -1,0 +1,81 @@
+# One sharded Playwright job. Each parallel copy runs 1/N of the tests and publishes
+# its JUnit results and a blob report (merged later by report-steps.yml).
+parameters:
+  - name: name
+    type: string
+    default: Playwright
+  - name: grep
+    type: string
+    default: "@Regression"
+  - name: shards
+    type: number
+    default: 1
+  - name: environment
+    type: string
+    default: qa
+  # Extra CLI args, e.g. "--project=chromium --project=api"
+  - name: playwrightArgs
+    type: string
+    default: ""
+  - name: browsers
+    type: string
+    default: chromium firefox
+  - name: runInContainer
+    type: boolean
+    default: false
+  - name: timeoutInMinutes
+    type: number
+    default: 90
+
+jobs:
+  - job: ${{ parameters.name }}
+    displayName: ${{ parameters.name }} (${{ parameters.environment }})
+    timeoutInMinutes: ${{ parameters.timeoutInMinutes }}
+    strategy:
+      parallel: ${{ parameters.shards }}
+    ${{ if parameters.runInContainer }}:
+      # Keep in sync with @playwright/test and the Dockerfile
+      container: mcr.microsoft.com/playwright:v1.63.0-noble
+    variables:
+      # Secrets come from this variable group (linked to Key Vault): see docs/how-to-pipelines.md
+      - group: playwright-${{ parameters.environment }}
+    steps:
+      - checkout: self
+        fetchDepth: 1
+
+      - template: install-steps.yml
+        parameters:
+          browsers: ${{ parameters.browsers }}
+          runInContainer: ${{ parameters.runInContainer }}
+
+      - script: >-
+          npx playwright test
+          --shard=$(System.JobPositionInPhase)/$(System.TotalJobsInPhase)
+          --grep "${{ parameters.grep }}"
+          ${{ parameters.playwrightArgs }}
+        displayName: Run Playwright (shard $(System.JobPositionInPhase)/$(System.TotalJobsInPhase))
+        env:
+          # Secret variables are NOT visible to scripts unless mapped explicitly
+          TEST_ENV: ${{ parameters.environment }}
+          UI_TEST_ADMIN_EMAIL: $(UI_TEST_ADMIN_EMAIL)
+          UI_TEST_ADMIN_PASSWORD: $(UI_TEST_ADMIN_PASSWORD)
+          UI_TEST_CUSTOMER_EMAIL: $(UI_TEST_CUSTOMER_EMAIL)
+          UI_TEST_CUSTOMER_PASSWORD: $(UI_TEST_CUSTOMER_PASSWORD)
+          API_TEST_EMAIL: $(API_TEST_EMAIL)
+          API_TEST_PASSWORD: $(API_TEST_PASSWORD)
+
+      - task: PublishTestResults@2
+        displayName: Publish JUnit results
+        condition: always()
+        inputs:
+          testResultsFormat: JUnit
+          testResultsFiles: reports/junit.xml
+          testRunTitle: Playwright $(System.JobPositionInPhase)/$(System.TotalJobsInPhase) - ${{ parameters.environment }}
+          failTaskOnFailedTests: false
+
+      - task: PublishPipelineArtifact@1
+        displayName: Publish blob report
+        condition: always()
+        inputs:
+          targetPath: blob-report
+          artifact: blob-$(System.JobPositionInPhase)

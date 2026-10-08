@@ -6,12 +6,7 @@ import {
 import { expectError, expectStatus } from "../../../utils/api-assertions";
 import { extractPdfText } from "../../../utils/pdf-text";
 import { buildAddress } from "../../../test-data/users";
-import {
-  roundMoney,
-  STANDARD_SHIPPING,
-  TAX_RATE,
-  UNKNOWN_ID,
-} from "../../../test-data/api";
+import { roundMoney, STANDARD_SHIPPING, TAX_RATE, UNKNOWN_ID } from "../../../test-data/api";
 
 // Stock is asserted here, so buy a product the other suites leave alone
 const PRODUCT_SLUG = "resistance-bands-set";
@@ -70,7 +65,11 @@ test.describe("@API Orders - checkout", () => {
         await api
           .path("orders")
           .auth(accessToken)
-          .body({ shippingAddress: buildAddress(), paymentMethod: "cod", deliveryMethod: "standard" })
+          .body({
+            shippingAddress: buildAddress(),
+            paymentMethod: "cod",
+            deliveryMethod: "standard",
+          })
           .postRequest(),
         201,
       ),
@@ -100,7 +99,10 @@ test.describe("@API Orders - checkout", () => {
 
       const detail = await orderApi.getOrder(accessToken, order.id);
       expect(detail.items).toHaveLength(1);
-      expect(detail.items[0]).toMatchObject({ product_id: product.id, quantity: 2 });
+      expect(detail.items[0]).toMatchObject({
+        product_id: product.id,
+        quantity: 2,
+      });
       expect(detail.history.map(({ status }) => status)).toContain("confirmed");
     });
 
@@ -129,7 +131,11 @@ test.describe("@API Orders - checkout", () => {
           await api
             .path("orders")
             .auth(accessToken)
-            .body({ shippingAddress: buildAddress(), paymentMethod: "cod", deliveryMethod: method })
+            .body({
+              shippingAddress: buildAddress(),
+              paymentMethod: "cod",
+              deliveryMethod: method,
+            })
             .postRequest(),
           201,
         ),
@@ -167,7 +173,12 @@ test.describe("@API Orders - reading", () => {
     expect(body.tracking.status).toBe("confirmed");
   });
 
-  test("Invoice JSON matches the order", async ({ api, accessToken, verifiedUser, placedOrder }) => {
+  test("Invoice JSON matches the order", async ({
+    api,
+    accessToken,
+    verifiedUser,
+    placedOrder,
+  }) => {
     const { invoice } = invoiceResponseSchema.parse(
       await expectStatus(
         await api.path(`orders/${placedOrder.order.id}/invoice`).auth(accessToken).getRequest(),
@@ -177,12 +188,17 @@ test.describe("@API Orders - reading", () => {
     expect(invoice.order.order_number).toBe(placedOrder.order.order_number);
     expect(invoice.order.total).toBe(placedOrder.order.total);
     expect(invoice.order.email).toBe(verifiedUser.email);
-    expect(invoice.items.map(({ product_name }) => product_name)).toEqual([placedOrder.productName]);
+    expect(invoice.items.map(({ product_name }) => product_name)).toEqual([
+      placedOrder.productName,
+    ]);
   });
 
   test("Invoice PDF downloads with the order number", async ({ api, accessToken, placedOrder }) => {
     const { order } = placedOrder;
-    const response = await api.path(`orders/${order.id}/invoice/pdf`).auth(accessToken).getRequest();
+    const response = await api
+      .path(`orders/${order.id}/invoice/pdf`)
+      .auth(accessToken)
+      .getRequest();
 
     expect(response.status()).toBe(200);
     expect(response.headers()["content-type"]).toBe("application/pdf");
@@ -204,7 +220,10 @@ test.describe("@API Orders - reading", () => {
       ["detail", () => api.path(`orders/${id}`).auth(secondUser.accessToken).getRequest()],
       ["track", () => api.path(`orders/${id}/track`).auth(secondUser.accessToken).getRequest()],
       ["invoice", () => api.path(`orders/${id}/invoice`).auth(secondUser.accessToken).getRequest()],
-      ["cancel", () => api.path(`orders/${id}/cancel`).auth(secondUser.accessToken).body({}).postRequest()],
+      [
+        "cancel",
+        () => api.path(`orders/${id}/cancel`).auth(secondUser.accessToken).body({}).postRequest(),
+      ],
     ] as const) {
       await test.step(label, async () => {
         await expectStatus(await send(), 404);

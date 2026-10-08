@@ -1,25 +1,82 @@
 {
   "name": "ui_api_shop_qa_automation",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Agentic AI Playwright framework for the ShopQA app (UI + API + E2E) with Azure DevOps integration",
   "scripts": {
     "test": "playwright test",
-    "test:ui": "playwright test --project=chromium",
-    "test:e2e": "playwright test --project=e2e",
+    "test:smoke": "playwright test --grep \"@Sanity|@smoke\" --project=chromium --project=api",
+    "test:regression": "playwright test --grep @Regression",
     "test:api": "playwright test --project=api",
-    "report": "playwright show-report"
+    "test:ui": "playwright test --project=chromium --project=firefox",
+    "test:e2e": "playwright test --project=e2e",
+    "test:list": "playwright test --list",
+    "report": "playwright show-report",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "unit": "vitest run",
+    "unit:watch": "vitest",
+    "triage": "tsx ai/agents/triage.cli.ts",
+    "eval:triage": "tsx ai/evals/run-triage-eval.ts",
+    "ado:create-plan": "tsx integrations/ado/cli/create-plan.ts",
+    "ado:publish-results": "tsx integrations/ado/cli/publish-results.ts",
+    "ado:map-tests": "tsx integrations/ado/cli/map-tests.ts",
+    "agent:story": "tsx ai/agents/story-to-test.cli.ts",
+    "agent:heal": "tsx ai/agents/healer.cli.ts",
+    "dashboard:dev": "tsx watch --clear-screen=false dashboard/server/main.ts --dev",
+    "dashboard:build": "vite build --config dashboard/web/vite.config.ts",
+    "dashboard:start": "tsx dashboard/server/main.ts",
+    "docker:build": "docker build -t shopqa-playwright .",
+    "docker:test": "node scripts/docker-test.mjs",
+    "prepare": "husky",
+    "test:dashboard": "playwright test -c dashboard/playwright.config.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@azure/identity": "^4.13.3",
+    "@azure/playwright": "^1.1.6",
+    "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^10.6.0",
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.2"
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.12.0",
+    "eslint-plugin-playwright": "^2.12.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.1",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.132.1",
     "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "fflate": "^0.8.3",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "zod": "^4.6.5"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css,html}": "prettier --write"
   }
 }

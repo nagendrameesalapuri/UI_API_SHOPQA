@@ -1,0 +1,4 @@
+{
+  "patterns": [{ "name": "order-number", "regex": "ORD-\d{6,}", "flags": "g" }],
+  "names": ["Example Person"]
+}

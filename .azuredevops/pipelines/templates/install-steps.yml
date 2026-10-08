@@ -1,0 +1,34 @@
+# Installs Node, restores the npm cache, runs npm ci and (optionally) installs browsers.
+# Inside the Playwright container job, Node and browsers are already there.
+parameters:
+  - name: installBrowsers
+    type: boolean
+    default: true
+  - name: browsers
+    type: string
+    default: chromium firefox
+  - name: runInContainer
+    type: boolean
+    default: false
+
+steps:
+  - ${{ if eq(parameters.runInContainer, false) }}:
+      - task: UseNode@1
+        displayName: Use Node 20.x
+        inputs:
+          version: 20.x
+
+  - task: Cache@2
+    displayName: Cache npm
+    inputs:
+      key: 'npm | "$(Agent.OS)" | package-lock.json'
+      restoreKeys: |
+        npm | "$(Agent.OS)"
+      path: $(npm_config_cache)
+
+  - script: npm ci
+    displayName: npm ci
+
+  - ${{ if and(parameters.installBrowsers, eq(parameters.runInContainer, false)) }}:
+      - script: npx playwright install --with-deps ${{ parameters.browsers }}
+        displayName: Install Playwright browsers

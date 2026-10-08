@@ -1,9 +1,24 @@
-
-# Playwright
+# Dependencies
 node_modules/
+
+# Playwright output
 /test-results/
 /playwright-report/
 /blob-report/
+/reports/
 /playwright/.cache/
 /playwright/.auth/
+/.auth/
+
+# Secrets
 .env
+.env.*
+!.env.example
+
+# Caches / builds
+/dashboard/.cache/
+/dashboard/dist/
+.cache/
+*.tsbuildinfo
+coverage/
+ai/evals/broken-suite/results.json

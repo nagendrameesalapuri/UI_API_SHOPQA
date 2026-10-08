@@ -1,0 +1,16 @@
+{
+  "id": 1234,
+  "rev": 3,
+  "fields": {
+    "System.WorkItemType": "User Story",
+    "System.Title": "Apply a coupon at checkout",
+    "System.Description": "<div>As a customer I want to apply a coupon code in my cart so that I pay less.</div>",
+    "Microsoft.VSTS.Common.AcceptanceCriteria": "<div><b>Scenario: Valid coupon reduces the total</b></div><div>Given a signed-in customer with items worth more than 2000 in the cart</div><div>When they apply the coupon FLAT500</div><div>Then the cart total is reduced by 500</div><div>And the coupon is shown as applied</div><div><br></div><div><b>Scenario: Expired coupon is rejected</b></div><div>Given a signed-in customer with items in the cart</div><div>When they apply an expired coupon</div><div>Then an error message is shown</div><div>And the total does not change</div><div><br></div><div><b>Scenario: Minimum order value</b></div><div>Given a cart worth less than the coupon minimum</div><div>When they apply the coupon FLAT500</div><div>Then the coupon is not applied and the minimum amount is shown</div>"
+  },
+  "relations": [
+    {
+      "rel": "Microsoft.VSTS.Common.TestedBy-Forward",
+      "url": "https://dev.azure.com/org/_apis/wit/workItems/5001"
+    }
+  ]
+}
